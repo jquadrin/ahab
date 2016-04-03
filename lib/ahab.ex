@@ -10,7 +10,6 @@ defmodule Ahab do
 
 
   ### API ###
-
   
   @doc """
   Start a TCP acceptor pool.
@@ -38,7 +37,7 @@ defmodule Ahab do
   """
   @spec init_ack :: {:ok, port} | {:error, term}
   def init_ack do 
-    Ahab.Acceptor.init_ack
+    Ahab.Supervisor.init_ack
   end 
 
   @doc """
@@ -47,7 +46,7 @@ defmodule Ahab do
   """
   @spec connections(pid) :: {:ok, integer}
   def connections(supervisor_pid) do
-    Ahab.Acceptor.count_connections(supervisor_pid)
+    Ahab.Supervisor.count_connections(supervisor_pid)
   end
 
   @doc """
@@ -55,7 +54,7 @@ defmodule Ahab do
   """
   @spec release_connection(pid) :: none
   def release_connection(acceptor_pid) do
-    Ahab.Acceptor.release_connection(acceptor_pid)
+    Ahab.Supervisor.release_connection(acceptor_pid)
   end
 
   @doc """
