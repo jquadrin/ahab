@@ -5,8 +5,6 @@ otp_release:
   - 17.5
   - 18.0
 sudo: false
-script: 
-  - mix test
 notifications:
   recipients:
     - jquadrin@gmail.com
